@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<title>API Tester</title>
+		<script src="../js/jquery.js"></script>
+	</head>
+	<body>
+
+		<form action="action.py" method="post" accept-charset="utf-8">
+
+			<p>
+				<a href="#" id="formSubmit">Senden</a>
+			</p>
+		</form>
+
+<script type="text/javascript" charset="utf-8">
+	 $(document).ready(function(){
+
+    });
+
+$('#formSubmit').click(function() {
+	$.ajax({
+  type: "POST",
+  url: "/cgi-bin/action.py",
+  contentType : 'application/json',
+  data: JSON.stringify({'request': 'test'}),
+  success: function (data) {
+    console.log(data);
+  },
+  dataType: 'json'
+});
+});
+</script>
+	</body>
+</html>
